@@ -5,40 +5,30 @@ position: "APHL Bioinformatics Fellow"
 address: "Enteric Diseases Laboratory Branch, Centers for Disease Control and Prevention, Atlanta, GA, USA"
 email: "jhamlin@cdc.gov"
 github: jennahamlin
-aboutme: "I am a scientist with 10+ years of experience in genomics and evolutionary . My training includes using a range of tools - genomics, population genetics, molecular biology – to answer interesting questions in regarding orgnamisms which can cause to human health. I have a particular"
+aboutme: "I am a scientist with 10+ years of experience in genetics, genomics, and evolutionary biology. My training includes using a range of tools - bioinformatics, genomics, population genetics, molecular biology – to answer interesting questions in regarding orgnamisms which can cause to human health."
 date: "`r format(Sys.time(), '%B %Y')`"
 headcolor: 000000
 output: vitae::awesomecv
----
+--- 
 
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 library(vitae)
-```
-
-# Education
-
-```{r}
-library(tibble)
-tribble(
-  ~ Degree, ~ Year, ~ Institution, ~ Where,
-  "Ph.D.", "2015", "University of Georgia", "Athens, GA",
-  "B.S.", "2010", "University of North Carolina - Asheville", "Asheville, NC"
-) %>% 
-  detailed_entries(Degree, Year, Institution, Where)
-```
-
-# Appointments
-
-```{r}
-tribble(
-  ~ Project, ~ Year, ~ Title, ~ Where, 
-  "Tinsel", "2019 - Current", "APHL Bioinformatics Fellow", "CDC")%>%
-  detailed_entries(Project, Year, Title, Where)
+library(here)
+library(magrittr)
+library(glue)
 ```
 
 ```{r get data, include=FALSE}
+
+## Education
+edu <- readr::read_csv(here::here("data", "education.csv"))
+
+## Appointments
+appointments <- readr::read_csv(here::here("data", "appointments.csv"))
+ 
+# ## Publications - my google id here
 pubs<-scholar::get_publications("OIIf5T4AAAAJ&hl")%>%
   dplyr::mutate(author = author%>%
                 as.character %>%
@@ -47,11 +37,63 @@ pubs<-scholar::get_publications("OIIf5T4AAAAJ&hl")%>%
                                                 TRUE ~ FALSE),
                 preprint = dplyr::case_when(journal %in% c("bioRxiv", "BioRxiv") ~ TRUE,
                                             TRUE ~ FALSE)) %>%
-  
+
   dplyr::filter(journal  != "uga")%>%
   dplyr::arrange(dplyr::desc(year))
 
-pubs$journal <-plyr::revalue(pubs$journal,c("G" = "G3"))
+pubs$journal <-plyr::revalue(pubs$journal,c("G" = "G3")) #necessary as when pubs imported from scholar G3 becomes G, this corrects that
+ 
+## Software
+packages <- readr::read_csv(here::here("data", "packages.csv"))
+ 
+## Presentations
+# presentations <- readr::read_csv(here::here("data", "presentations.csv")) %>% 
+ #  dplyr::arrange(desc(when))
+ 
+# ## Teaching
+# teaching <- readr::read_csv(here::here("data", "teaching.csv")) %>% 
+#   dplyr::arrange(desc(when))
+# 
+## Skills
+ skills <- readr::read_csv(here::here("data", "skills.csv")) %>% 
+   dplyr::group_by(category) %>% 
+   dplyr::mutate(skill = paste(skill, collapse = ", ")) %>% 
+   dplyr::ungroup()%>% 
+   unique
+ 
+# ## Mentoring
+# mentor <- readr::read_csv(here::here("data", "mentor.csv"))
+
+```
+
+# Education
+
+```{r}
+vitae::detailed_entries(edu, 
+                 when = awarded,
+                 what = degree,
+                 where = loc,
+                 with = uni)
+
+```
+
+# Appointments
+
+```{r research}
+appointments %>% 
+  vitae::detailed_entries(
+    what = role,
+    when = glue("{start_date}--{end_date}"),
+    with = company,
+    where = where,
+    why = details)
+```
+
+# Skills
+
+```{r}
+skills %>% 
+  vitae::detailed_entries(what = skill, with = category)
 ```
 
 # Publications
@@ -96,3 +138,13 @@ pubs %>%
     .protect = TRUE
   )
 ```
+
+# R - Packages
+
+```{r}
+packages %>% 
+  vitae::detailed_entries(what = what, with = package, when = when, where = where, why = why)
+```
+
+# Presentations
+
