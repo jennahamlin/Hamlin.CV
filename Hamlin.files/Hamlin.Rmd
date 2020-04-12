@@ -7,7 +7,7 @@ email: "jhamlin@cdc.gov"
 github: jennahamlin
 aboutme: "I am a scientist with 10+ years of experience in genomics and evolutionary . My training includes using a range of tools - genomics, population genetics, molecular biology – to answer interesting questions in regarding orgnamisms which can cause to human health. I have a particular"
 date: "`r format(Sys.time(), '%B %Y')`"
-headcolor: 32cd32
+headcolor: 000000
 output: vitae::awesomecv
 ---
 
@@ -29,19 +29,13 @@ tribble(
   detailed_entries(Degree, Year, Institution, Where)
 ```
 
-# Lanuages
+# Appointments
 
 ```{r}
-#tribble(
-#  ~Year, ~Type, ~Desc,
-#  1903, "Physics", "Awarded for her work on radioactivity with Pierre Curie and Henri Becquerel",
-#  1911, "Chemistry", "Awarded for the discovery of radium and polonium"
-#) %>% 
-#  brief_entries(
-#    glue::glue("Nobel Prize in {Type}"),
-#    Year, 
-#    Desc
-#  )
+tribble(
+  ~ Project, ~ Year, ~ Title, ~ Where, 
+  "Tinsel", "2019 - Current", "APHL Bioinformatics Fellow", "CDC")%>%
+  detailed_entries(Project, Year, Title, Where)
 ```
 
 ```{r get data, include=FALSE}
@@ -58,9 +52,6 @@ pubs<-scholar::get_publications("OIIf5T4AAAAJ&hl")%>%
   dplyr::arrange(dplyr::desc(year))
 
 pubs$journal <-plyr::revalue(pubs$journal,c("G" = "G3"))
-
-
-
 ```
 
 # Publications
