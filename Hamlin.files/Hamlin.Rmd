@@ -47,8 +47,8 @@ tribble(
 ```{r get data, include=FALSE}
 pubs<-scholar::get_publications("OIIf5T4AAAAJ&hl")%>%
   dplyr::mutate(author = author%>%
-                  as.character %>%
-                  stringr::str_trim(),
+                as.character %>%
+                stringr::str_trim(),
                 first_author = dplyr::case_when(stringr::str_starts(author, "JAP Hamlin") ~ TRUE,
                                                 TRUE ~ FALSE),
                 preprint = dplyr::case_when(journal %in% c("bioRxiv", "BioRxiv") ~ TRUE,
@@ -56,6 +56,11 @@ pubs<-scholar::get_publications("OIIf5T4AAAAJ&hl")%>%
   
   dplyr::filter(journal  != "uga")%>%
   dplyr::arrange(dplyr::desc(year))
+
+pubs$journal <-plyr::revalue(pubs$journal,c("G" = "G3"))
+
+
+
 ```
 
 # Publications
@@ -63,14 +68,14 @@ pubs<-scholar::get_publications("OIIf5T4AAAAJ&hl")%>%
 **First author**
 
 ```{r}
- pubs %>% 
-   dplyr::filter(first_author, !preprint) %>% 
-   vitae::detailed_entries(
-     what = title,
-     when = year,
-     with = author,
-     where = journal, 
-     .protect = TRUE)
+pubs %>% 
+  dplyr::filter(first_author, !preprint) %>% 
+  vitae::detailed_entries(
+    what = title,
+    when = year,
+    with = author,
+    where = journal, 
+    .protect = TRUE)
 ```
 
 **Non-first author**
