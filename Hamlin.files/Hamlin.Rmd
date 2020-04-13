@@ -5,7 +5,7 @@ position: "APHL Bioinformatics Fellow"
 address: "Enteric Diseases Laboratory Branch, Centers for Disease Control and Prevention, Atlanta, GA, USA"
 email: "jhamlin@cdc.gov"
 github: jennahamlin
-aboutme: "I am a scientist with 10+ years of experience in genetics, genomics, and evolutionary biology. My training includes using a range of tools - bioinformatics, genomics, population genetics, molecular biology – to answer interesting questions in regarding orgnamisms which can cause to human health."
+aboutme: "I am a scientist with 10+ years of experience in classical genetics, genomics, and evolutionary biology. My training includes using a range of tools - bioinformatics, genomics, population genetics, molecular evolution with experimental design in mind. Over the years as my computational skills increased, the genomes of the organisms I work on get smaller! I, now, work at the interface of public health, tool development, and understanding orgnamisms which can cause to humans."
 date: "`r format(Sys.time(), '%B %Y')`"
 headcolor: 000000
 output: vitae::awesomecv
@@ -28,7 +28,14 @@ edu <- readr::read_csv(here::here("data", "education.csv"))
 ## Appointments
 appointments <- readr::read_csv(here::here("data", "appointments.csv"))
  
-# ## Publications - my google id here
+## Skills
+ skills <- readr::read_csv(here::here("data", "skills.csv")) %>% 
+   dplyr::group_by(category) %>% 
+   dplyr::mutate(skill = paste(skill, collapse = ", ")) %>% 
+   dplyr::ungroup()%>% 
+   unique
+ 
+## Publications - my google id here
 pubs<-scholar::get_publications("OIIf5T4AAAAJ&hl")%>%
   dplyr::mutate(author = author%>%
                 as.character %>%
@@ -42,27 +49,17 @@ pubs<-scholar::get_publications("OIIf5T4AAAAJ&hl")%>%
   dplyr::arrange(dplyr::desc(year))
 
 pubs$journal <-plyr::revalue(pubs$journal,c("G" = "G3")) #necessary as when pubs imported from scholar G3 becomes G, this corrects that
- 
+
+## Presentations - talks
+presentations <- readr::read_csv(here::here("data", "presentations.csv")) %>% 
+  dplyr::arrange(desc(when))
+
 ## Software
-packages <- readr::read_csv(here::here("data", "packages.csv"))
- 
-## Presentations
-# presentations <- readr::read_csv(here::here("data", "presentations.csv")) %>% 
- #  dplyr::arrange(desc(when))
- 
-# ## Teaching
-# teaching <- readr::read_csv(here::here("data", "teaching.csv")) %>% 
-#   dplyr::arrange(desc(when))
-# 
-## Skills
- skills <- readr::read_csv(here::here("data", "skills.csv")) %>% 
-   dplyr::group_by(category) %>% 
-   dplyr::mutate(skill = paste(skill, collapse = ", ")) %>% 
-   dplyr::ungroup()%>% 
-   unique
- 
-# ## Mentoring
-# mentor <- readr::read_csv(here::here("data", "mentor.csv"))
+packages <- readr::read_csv(here::
+                              here("data", "packages.csv"))
+
+## Mentoring
+mentor <- readr::read_csv(here::here("data", "mentor.csv"))
 
 ```
 
@@ -139,12 +136,47 @@ pubs %>%
   )
 ```
 
+# Presentations
+
+**Talks**
+
+```{r}
+presentations %>%
+  dplyr::filter(type == "talk")%>%
+  vitae::detailed_entries(what = what,
+                   when = when,
+                   with = with,
+                   where = where,
+                   .protect = TRUE)
+```
+
+**Posters**
+
+```{r}
+presentations %>%
+  dplyr::filter(type == "poster")%>%
+  vitae::detailed_entries(what = what,
+                   when = when,
+                   with = with,
+                   where = where,
+                   .protect = TRUE)
+```
+
 # R - Packages
 
 ```{r}
 packages %>% 
-  vitae::detailed_entries(what = what, with = package, when = when, where = where, why = why)
+  vitae::detailed_entries(what = what,
+                          with = package, 
+                          when = when, 
+                          where = where,
+                          why = why)
 ```
 
-# Presentations
+# Mentoring
 
+```{r}
+mentor %>% 
+  vitae::detailed_entries(where = where,
+                          why = who)
+```
