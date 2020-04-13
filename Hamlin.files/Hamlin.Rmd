@@ -5,7 +5,7 @@ position: "APHL Bioinformatics Fellow"
 address: "Enteric Diseases Laboratory Branch, Centers for Disease Control and Prevention, Atlanta, GA, USA"
 email: "jhamlin@cdc.gov"
 github: jennahamlin
-aboutme: "I am a scientist with 10+ years of experience in classical genetics, genomics, and evolutionary biology. My training includes using a range of tools - bioinformatics, population genetics, molecular evolution all with experimental design in mind. Over the years as my computational skills increased, the genomes of the organisms I work on get smaller! Now, I work at the interface of public health, application development, and understanding organisms that can cause harm to humans with an empahsise of developing reproduciable research."
+aboutme: "I am a scientist with 10+ years of experience in classical genetics, genomics, and evolutionary biology. My training includes using a range of tools - bioinformatics, population genetics, molecular evolution all with experimental design in mind. Over the years as my computational skills increased, the genomes of the organisms I work on get smaller! Now, I work at the interface of public health, application development, and understanding organisms that can cause harm to humans with an empahsis of developing reproduciable research."
 date: "`r format(Sys.time(), '%B %Y')`"
 headcolor: 000000
 output: vitae::awesomecv
@@ -126,7 +126,7 @@ presentations %>%
 
 **Posters**
 
-```{r}
+```{r posters}
 presentations %>%
   dplyr::filter(type == "poster")%>%
   vitae::detailed_entries(
@@ -139,7 +139,7 @@ presentations %>%
 
 # R - Packages
 
-```{r}
+```{r packages}
 packages %>% 
   vitae::detailed_entries(
     what = role,
