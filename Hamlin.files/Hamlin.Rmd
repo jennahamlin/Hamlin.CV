@@ -5,7 +5,7 @@ position: "APHL Bioinformatics Fellow"
 address: "Enteric Diseases Laboratory Branch, Centers for Disease Control and Prevention, Atlanta, GA, USA"
 email: "jhamlin@cdc.gov"
 github: jennahamlin
-aboutme: "I am a scientist with 10+ years of experience in classical genetics, genomics, and evolutionary biology. My training includes using a range of tools - bioinformatics, genomics, population genetics, molecular evolution with experimental design in mind. Over the years as my computational skills increased, the genomes of the organisms I work on get smaller! I, now, work at the interface of public health, tool development, and understanding orgnamisms which can cause to humans."
+aboutme: "I am a scientist with 10+ years of experience in classical genetics, genomics, and evolutionary biology. My training includes using a range of tools - bioinformatics, population genetics, molecular evolution all with experimental design in mind. Over the years as my computational skills increased, the genomes of the organisms I work on get smaller! Now, I work at the interface of public health, application development, and understanding organisms that can cause harm to humans with an empahsise of developing reproduciable research."
 date: "`r format(Sys.time(), '%B %Y')`"
 headcolor: 000000
 output: vitae::awesomecv
@@ -52,7 +52,7 @@ pubs$journal <-plyr::revalue(pubs$journal,c("G" = "G3")) #necessary as when pubs
 
 ## Presentations - talks
 presentations <- readr::read_csv(here::here("data", "presentations.csv")) %>% 
-  dplyr::arrange(desc(when))
+  dplyr::arrange(desc(year))
 
 ## Software
 packages <- readr::read_csv(here::
@@ -65,7 +65,7 @@ mentor <- readr::read_csv(here::here("data", "mentor.csv"))
 
 # Education
 
-```{r}
+```{r education}
 vitae::detailed_entries(edu, 
                  when = awarded,
                  what = degree,
@@ -76,7 +76,7 @@ vitae::detailed_entries(edu,
 
 # Appointments
 
-```{r research}
+```{r appointments}
 appointments %>% 
   vitae::detailed_entries(
     what = role,
@@ -88,45 +88,17 @@ appointments %>%
 
 # Skills
 
-```{r}
+```{r skills}
 skills %>% 
   vitae::detailed_entries(what = skill, with = category)
 ```
+\pagebreak
 
 # Publications
 
-**First author**
-
-```{r}
-pubs %>% 
-  dplyr::filter(first_author, !preprint) %>% 
-  vitae::detailed_entries(
-    what = title,
-    when = year,
-    with = author,
-    where = journal, 
-    .protect = TRUE)
-```
-
-**Non-first author**
-
-```{r}
+```{r publications}
 pubs %>%
-  dplyr::filter(!first_author, !preprint) %>%
-  vitae::detailed_entries(
-    what = title,
-    when = year,
-    with = author,
-    where = journal,
-    .protect = TRUE
-  )
-```
-
-**Preprints**
-
-```{r}
-pubs %>%
-  dplyr::filter(preprint) %>%
+  dplyr::filter(!preprint) %>%
   vitae::detailed_entries(
     what = title,
     when = year,
@@ -140,43 +112,77 @@ pubs %>%
 
 **Talks**
 
-```{r}
+```{r talks}
 presentations %>%
   dplyr::filter(type == "talk")%>%
-  vitae::detailed_entries(what = what,
-                   when = when,
-                   with = with,
-                   where = where,
-                   .protect = TRUE)
+  vitae::detailed_entries(
+    what = venue,
+    when = year,
+    with = title,
+    where = city,
+    .protect = TRUE)
 ```
+\pagebreak
 
 **Posters**
 
 ```{r}
 presentations %>%
   dplyr::filter(type == "poster")%>%
-  vitae::detailed_entries(what = what,
-                   when = when,
-                   with = with,
-                   where = where,
-                   .protect = TRUE)
+  vitae::detailed_entries(
+    what = venue,
+    when = year,
+    with = title,
+    where = city,
+    .protect = TRUE)
 ```
 
 # R - Packages
 
 ```{r}
 packages %>% 
-  vitae::detailed_entries(what = what,
-                          with = package, 
-                          when = when, 
-                          where = where,
-                          why = why)
+  vitae::detailed_entries(
+    what = role,
+    when = year,
+    with = title,
+    where = location,
+    .protect = TRUE)
 ```
 
 # Mentoring
 
-```{r}
-mentor %>% 
-  vitae::detailed_entries(where = where,
-                          why = who)
+**University of Georgia graduate students**
+
+```{r uga grad}
+mentor %>%
+   dplyr::filter(where == "University of Georgia" & level == "graduate")%>%
+  vitae::brief_entries(
+    what = who)
+```
+
+**University of Georgia undergraduate students**
+
+```{r uga undergrad}
+mentor %>%
+   dplyr::filter(where == "University of Georgia" & level == "undergraduate")%>%
+  vitae::brief_entries(
+    what = who)
+```
+
+**Indiana University graduate students**
+
+```{r iu grad}
+mentor %>%
+   dplyr::filter(where == "Indiana University" & level == "graduate")%>%
+  vitae::brief_entries(
+    what = who)
+```
+
+**Indiana University undergraduate students**
+
+```{r iu undergrad}
+mentor %>%
+   dplyr::filter(where == "Indiana University" & level == "undergraduate")%>%
+  vitae::brief_entries(
+    what = who)
 ```
