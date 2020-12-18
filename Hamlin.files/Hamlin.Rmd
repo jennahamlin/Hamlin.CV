@@ -7,7 +7,7 @@ email: "jhamlin@cdc.gov"
 github: jennahamlin
 aboutme: "I am a scientist with 10+ years of experience in classical genetics, genomics, and evolutionary biology. My training includes using a range of tools - bioinformatics, population genetics, molecular evolution all with experimental design in mind. Over the years as my computational skills increased, the genomes of the organisms I work on have gotten smaller. Now, I work at the interface of public health, application development, and understanding organisms that can cause harm to humans with an empahsis of developing reproduciable research."
 date: "`r format(Sys.time(), '%B %Y')`"
-headcolor: 000000
+headcolor: 414141
 output: vitae::awesomecv
 --- 
 
