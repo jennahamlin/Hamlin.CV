@@ -1,13 +1,15 @@
 role, company, where,start_date,end_date,details
-Association of Public Health Laboratories Bioinformatics Felllow,Centers for Disease Control and Prevention,"Atlanta, GA",19-Sep,Current,Developing Tinsel - an Rshiny application for annotating outbreak trees
-Association of Public Health Laboratories Bioinformatics Felllow,Centers for Disease Control and Prevention,"Atlanta, GA",19-Sep,Current,Worked with Scicomp for Tinsel to be available on CDC internal server
-Association of Public Health Laboratories Bioinformatics Felllow,Centers for Disease Control and Prevention,"Atlanta, GA",19-Sep,Current,Intiated collaboration to make Tinsel part of an open source genomics platform being developed by EDLB
-Association of Public Health Laboratories Bioinformatics Felllow,Centers for Disease Control and Prevention,"Atlanta, GA",19-Sep,Current,30 day detail on Routine Reporting for COVID-19 Response (June - July 2020)
+Bioinformatician with Division of Bacterial Diseases,Centers for Disease Control and Prevention,"Atlanta, GA",20-Nov,Current,Maintenance and updating Legionella databases for sequencing types
+Bioinformatician with Division of Bacterial Diseases,Centers for Disease Control and Prevention,"Atlanta, GA",20-Nov,Current,Developed pipeline for processing Ureaplasma genome sequences
+Bioinformatician with Division of Bacterial Diseases,Centers for Disease Control and Prevention,"Atlanta, GA",20-Nov,Current,Migrated bioinformatic work to use github as a lab notebook
+Association of Public Health Laboratories Bioinformatics Felllow,Centers for Disease Control and Prevention,"Atlanta, GA",19-Sep,20-Nov,Developing tinselR - an Rshiny application for annotating outbreak trees; hosted on github
+Association of Public Health Laboratories Bioinformatics Felllow,Centers for Disease Control and Prevention,"Atlanta, GA",19-Sep,20-Nov,Worked with scientific computing group for tinselR to be hosted on CDC internal server
+Association of Public Health Laboratories Bioinformatics Felllow,Centers for Disease Control and Prevention,"Atlanta, GA",19-Sep,20-Nov,30-day detail on Routine Reporting for COVID-19 Response (June - July 2020)
 Bensasson Lab Post-Doctoral Researcher,University of Georgia,"Athens, GA",17-Oct,19-Aug,Directed collaborative research with graduate and undergraduate students 
 Bensasson Lab Post-Doctoral Researcher,University of Georgia,"Athens, GA",17-Oct,19-Aug,Collated and streamlined genome mapping for 1000 Saccharomyces cerevisiae isolates as lab resource
 Bensasson Lab Post-Doctoral Researcher,University of Georgia,"Athens, GA",17-Oct,19-Aug,Used an iterative approach to assign ~400 genomes to well-defined populations using best practices for population genomics and phylogenetics
-Bensasson Lab Post-Doctoral Researcher,University of Georgia,"Athens, GA",17-Oct,19-Aug,Resolved haplotypes for Candida albicans genomes and verified with PacBio sequencing
+Bensasson Lab Post-Doctoral Researcher,University of Georgia,"Athens, GA",17-Oct,19-Aug,Resolved haplotypes for Candida albicans genomes with PacBio sequencing
 Moyle Lab Post-Doctoral Researcher,Indiana Unversity,"Bloomingto, IN",15-Jun,17-Sep,"Directed research with faculty, graduate, and undergraduates at IU and with two external universities"
-Moyle Lab Post-Doctoral Researcher,Indiana Unversity,"Bloomingto, IN",15-Jun,17-Sep,Identified genome-wide trends in 30 genomes for Solanum species using whole genome mapping
+Moyle Lab Post-Doctoral Researcher,Indiana Unversity,"Bloomingto, IN",15-Jun,17-Sep,Genome?wide study of factors that determine the likelihood of introgression for Solanum species
 Moyle Lab Post-Doctoral Researcher,Indiana Unversity,"Bloomingto, IN",15-Jun,17-Sep,Streamlined genotyping to generate biological replicates. Validate data accuracy using technical replicates along with statistical analyses
 Moyle Lab Post-Doctoral Researcher,Indiana Unversity,"Bloomingto, IN",15-Jun,17-Sep,"Used linear mixed models and ANOVA to identify differences in targeting, rates, and floral trait differences with biological and technical replicates for a large-scale crossing project"

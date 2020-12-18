@@ -1,11 +1,11 @@
 ---
 name: Jennafer
 surname: Hamlin
-position: "APHL Bioinformatics Fellow"
-address: "Enteric Diseases Laboratory Branch, Centers for Disease Control and Prevention, Atlanta, GA, USA"
+position: "Bioinformatician"
+address: "Respiratory Diseases Laboratory Branch, Centers for Disease Control and Prevention, Atlanta, GA, USA"
 email: "jhamlin@cdc.gov"
 github: jennahamlin
-aboutme: "I am a scientist with 10+ years of experience in classical genetics, genomics, and evolutionary biology. My training includes using a range of tools - bioinformatics, population genetics, molecular evolution all with experimental design in mind. Over the years as my computational skills increased, the genomes of the organisms I work on get smaller! Now, I work at the interface of public health, application development, and understanding organisms that can cause harm to humans with an empahsis of developing reproduciable research."
+aboutme: "I am a scientist with 10+ years of experience in classical genetics, genomics, and evolutionary biology. My training includes using a range of tools - bioinformatics, population genetics, molecular evolution all with experimental design in mind. Over the years as my computational skills increased, the genomes of the organisms I work on have gotten smaller. Now, I work at the interface of public health, application development, and understanding organisms that can cause harm to humans with an empahsis of developing reproduciable research."
 date: "`r format(Sys.time(), '%B %Y')`"
 headcolor: 000000
 output: vitae::awesomecv
@@ -55,8 +55,7 @@ presentations <- readr::read_csv(here::here("data", "presentations.csv")) %>%
   dplyr::arrange(desc(year))
 
 ## Software
-packages <- readr::read_csv(here::
-                              here("data", "packages.csv"))
+packages <- readr::read_csv(here::here("data", "packages.csv"))
 
 ## Mentoring
 mentor <- readr::read_csv(here::here("data", "mentor.csv"))
