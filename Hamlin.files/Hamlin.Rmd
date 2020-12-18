@@ -91,7 +91,6 @@ appointments %>%
 skills %>% 
   vitae::detailed_entries(what = skill, with = category)
 ```
-\pagebreak
 
 # Publications
 
@@ -121,7 +120,6 @@ presentations %>%
     where = city,
     .protect = TRUE)
 ```
-\pagebreak
 
 **Posters**
 
