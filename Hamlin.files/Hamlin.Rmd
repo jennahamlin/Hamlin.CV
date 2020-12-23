@@ -1,5 +1,5 @@
 ---
-name: Jennafer
+name: Jenna
 surname: Hamlin
 position: "Bioinformatician"
 address: "Respiratory Diseases Laboratory Branch, Centers for Disease Control and Prevention, Atlanta, GA, USA"
