@@ -1,7 +1,8 @@
 role, company, where,start_date,end_date,details
 Bioinformatician with Division of Bacterial Diseases,Centers for Disease Control and Prevention,"Atlanta, GA",20-Nov,Current,Maintenance and updating Legionella databases for sequencing types
-Bioinformatician with Division of Bacterial Diseases,Centers for Disease Control and Prevention,"Atlanta, GA",20-Nov,Current,Developed pipeline for processing Ureaplasma genome sequences
+Bioinformatician with Division of Bacterial Diseases,Centers for Disease Control and Prevention,"Atlanta, GA",20-Nov,Current,Developed pipeline for processing Legionella/Mycoplasma/Ureaplasma genome sequences using NextFlow
 Bioinformatician with Division of Bacterial Diseases,Centers for Disease Control and Prevention,"Atlanta, GA",20-Nov,Current,Migrated bioinformatic work to use github as a lab notebook
+Bioinformatician with Division of Bacterial Diseases,Centers for Disease Control and Prevention,"Atlanta, GA",20-Nov,Current,60-day detail on Data Analytics and Visualization for Vaccine Task Force (April - June 2021)
 Association of Public Health Laboratories Bioinformatics Felllow,Centers for Disease Control and Prevention,"Atlanta, GA",19-Sep,20-Nov,Developing tinselR - an Rshiny application for annotating outbreak trees; hosted on github
 Association of Public Health Laboratories Bioinformatics Felllow,Centers for Disease Control and Prevention,"Atlanta, GA",19-Sep,20-Nov,Worked with scientific computing group for tinselR to be hosted on CDC internal server
 Association of Public Health Laboratories Bioinformatics Felllow,Centers for Disease Control and Prevention,"Atlanta, GA",19-Sep,20-Nov,30-day detail on Routine Reporting for COVID-19 Response (June - July 2020)

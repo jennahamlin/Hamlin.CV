@@ -14,19 +14,3 @@ Programming,Bash - expert
 Programming,Python - expert
 Programming,R - expert
 Programming,Rmarkdown - expert
-Tools,bcftools
-Tools,blast
-Tools,bwa
-Tools,conda/anaconda
-Tools,fastQC
-Tools,git/github
-Tools,prokka
-Tools,quast
-Tools,Rshiny
-Tools,samtools
-Tools,seqtk
-Tools,shovill
-Tools,snippy
-Tools,spades
-Tools,trimmomatic
-Tools,vcftools
