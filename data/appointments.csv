@@ -1,7 +1,8 @@
 role, company, where,start_date,end_date,details
-Bioinformatician with Division of Bacterial Diseases,Centers for Disease Control and Prevention,"Atlanta, GA",20-Nov,Current,Updating and maintenance Legionella databases for sequencing types and species id tool
-Bioinformatician with Division of Bacterial Diseases,Centers for Disease Control and Prevention,"Atlanta, GA",20-Nov,Current,Tested Nextflow pipeline for processing Legionella/Mycoplasma/Ureaplasma genome sequences
-Bioinformatician with Division of Bacterial Diseases,Centers for Disease Control and Prevention,"Atlanta, GA",20-Nov,Current,Developed validation plan for species id tool
+Bioinformatician with Division of Bacterial Diseases,Centers for Disease Control and Prevention,"Atlanta, GA",20-Nov,Current,Interfacing with state public health laboratories for bioinformatics help
+Bioinformatician with Division of Bacterial Diseases,Centers for Disease Control and Prevention,"Atlanta, GA",20-Nov,Current,"Test and development of reproducible and validated binformatics tools (NextFlow, validation using simulated NGS data)"
+Bioinformatician with Division of Bacterial Diseases,Centers for Disease Control and Prevention,"Atlanta, GA",20-Nov,Current,Phylogenetic and phylodyanamic analyses for a Leginella sequence type of public health concern
+Bioinformatician with Division of Bacterial Diseases,Centers for Disease Control and Prevention,"Atlanta, GA",20-Nov,Current,Generating additional analyses and ideas for Legionella research questions
 Bioinformatician with Division of Bacterial Diseases,Centers for Disease Control and Prevention,"Atlanta, GA",20-Nov,Current,60-day detail on Data Analytics and Visualization for Vaccine Task Force (April - June 2021)
 Association of Public Health Laboratories Bioinformatics Felllow,Centers for Disease Control and Prevention,"Atlanta, GA",19-Sep,20-Nov,Developing tinselR - an Rshiny application for annotating outbreak trees; hosted on github
 Association of Public Health Laboratories Bioinformatics Felllow,Centers for Disease Control and Prevention,"Atlanta, GA",19-Sep,20-Nov,Worked with scientific computing group for tinselR to be hosted on CDC internal server

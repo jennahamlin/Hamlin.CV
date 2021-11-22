@@ -1,7 +1,7 @@
 ---
 name: Jenna
 surname: Hamlin
-position: "Bioinformatician"
+position: "Bioinformatician II"
 address: "Respiratory Diseases Laboratory Branch, Centers for Disease Control and Prevention, Atlanta, GA, USA"
 email: "jhamlin@cdc.gov"
 github: jennahamlin
