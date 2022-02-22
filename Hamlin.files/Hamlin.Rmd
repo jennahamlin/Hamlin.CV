@@ -45,7 +45,7 @@ pubs<-scholar::get_publications("OIIf5T4AAAAJ&hl")%>%
                 preprint = dplyr::case_when(journal %in% c("bioRxiv", "BioRxiv") ~ TRUE,
                                             TRUE ~ FALSE)) %>%
 
-  dplyr::filter(journal  != "uga" & journal != "The Bulletin of the Ecological Society of America") %>% #exclude thesis
+  dplyr::filter(journal  != "University of Georgia" & journal != "Bulletin of the Ecological Society of America") %>% #exclude thesis
   dplyr::arrange(dplyr::desc(year))
 
 pubs$journal <-plyr::revalue(pubs$journal,c("G" = "G3")) #necessary as when pubs imported from scholar G3 becomes G, this corrects that
