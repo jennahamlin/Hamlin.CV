@@ -141,7 +141,7 @@ tibble::tribble(
    \\vspace{1mm}
    * 30-day detail on Routine Reporting for COVID-19 Response (June - July 2020)
    \\begin{itemize}
-     \\item Produced daily and weekly reports for task force; Consolidated steps for document creation to be reproducible via one script 
+     \\item Produced daily and weekly reports for task force. Consolidated steps for document creation to be reproducible via one script 
    \\end{itemize}",
   "Bensasson Lab Post-Doctoral Researcher",
   "University of Georgia (UGA)",
