@@ -111,8 +111,8 @@ tibble::tribble(
    * Phylogenetic and phylodyanamic analyses for Legionella isolates of public health concern
    \\begin{itemize}
       \\item Performing analyses and generating statistical summaries and visualizations
-      \\item Writing and editing manuscripts for publicaion
-      \\item Identifying scienctic questions answerable with existing data
+      \\item Writing and editing manuscripts for publication
+      \\item Identifying scientific questions answerable with existing data
    \\end{itemize}
     \\vspace{1mm}
    * Developing or testing scripts and pipelines as necessary
