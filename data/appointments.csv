@@ -1,11 +1,11 @@
 role, company, where,start_date,end_date,details
-Bioinformatician with Division of Bacterial Diseases,Centers for Disease Control and Prevention,"Atlanta, GA",20-Nov,Current,Interfacing with state public health laboratories for bioinformatics help
-Bioinformatician with Division of Bacterial Diseases,Centers for Disease Control and Prevention,"Atlanta, GA",20-Nov,Current,"Test and development of reproducible and validated binformatics tools (NextFlow, validation using simulated NGS data)"
-Bioinformatician with Division of Bacterial Diseases,Centers for Disease Control and Prevention,"Atlanta, GA",20-Nov,Current,Phylogenetic and phylodyanamic analyses for a Leginella sequence type of public health concern
-Bioinformatician with Division of Bacterial Diseases,Centers for Disease Control and Prevention,"Atlanta, GA",20-Nov,Current,Generating additional analyses and ideas for Legionella research questions
-Bioinformatician with Division of Bacterial Diseases,Centers for Disease Control and Prevention,"Atlanta, GA",20-Nov,Current,60-day detail on Data Analytics and Visualization for Vaccine Task Force (April - June 2021)
-Association of Public Health Laboratories Bioinformatics Felllow,Centers for Disease Control and Prevention,"Atlanta, GA",19-Sep,20-Nov,Developing tinselR - an Rshiny application for annotating outbreak trees; hosted on github
-Association of Public Health Laboratories Bioinformatics Felllow,Centers for Disease Control and Prevention,"Atlanta, GA",19-Sep,20-Nov,Worked with scientific computing group for tinselR to be hosted on CDC internal server
+Bioinformatician II with Division of Bacterial Diseases,"Centers for Disease Control and Prevention, ASRT Inc. Contractor","Atlanta, GA",20-Nov,Current,Interfacing with state public health laboratories for bioinformatics and genomics help
+Bioinformatician II with Division of Bacterial Diseases,"Centers for Disease Control and Prevention, ASRT Inc. Contractor","Atlanta, GA",20-Nov,Current,Refactored Species ID tool with Nextflow wrapped around for future deployment on Nextflow tower
+Bioinformatician II with Division of Bacterial Diseases,"Centers for Disease Control and Prevention, ASRT Inc. Contractor","Atlanta, GA",20-Nov,Current,Phylogenetic and phylodyanamic analyses for a Leginella sequence types of public health concern
+Bioinformatician II with Division of Bacterial Diseases,"Centers for Disease Control and Prevention, ASRT Inc. Contractor","Atlanta, GA",20-Nov,Current,Development of validation for Species ID tools using simulated NGS data
+Bioinformatician II with Division of Bacterial Diseases,"Centers for Disease Control and Prevention, ASRT Inc. Contractor","Atlanta, GA",20-Nov,Current,60-day detail on Data Analytics and Visualization for Vaccine Task Force (April - June 2021)
+Association of Public Health Laboratories Bioinformatics Felllow,Centers for Disease Control and Prevention,"Atlanta, GA",19-Sep,20-Nov,Developing tinselR - an Rshiny application for annotating outbreak trees
+Association of Public Health Laboratories Bioinformatics Felllow,Centers for Disease Control and Prevention,"Atlanta, GA",19-Sep,20-Nov,Participated in APHL core competency and leadership training
 Association of Public Health Laboratories Bioinformatics Felllow,Centers for Disease Control and Prevention,"Atlanta, GA",19-Sep,20-Nov,30-day detail on Routine Reporting for COVID-19 Response (June - July 2020)
 Bensasson Lab Post-Doctoral Researcher,University of Georgia,"Athens, GA",17-Oct,19-Aug,Directed collaborative research with graduate and undergraduate students 
 Bensasson Lab Post-Doctoral Researcher,University of Georgia,"Athens, GA",17-Oct,19-Aug,Collated and streamlined genome mapping for 1000 Saccharomyces cerevisiae isolates as lab resource
