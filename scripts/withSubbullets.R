@@ -15,7 +15,7 @@ output <- tibble::tribble(
    \\vspace{1mm}
    * Development of method validation plan for Legionella Species ID tool
    \\begin{itemize}
-     \\item Researched and proposed statistically sound validation plan for tool that uses next generation sequencing data
+     \\item Researched and proposed statistically sound validation plan to test tool that uses next generation sequencing data
    \\end{itemize}
    \\vspace{1mm}
    * Phylogenetic and phylodynamic analyses for Legionella isolates of public health concern
@@ -37,7 +37,7 @@ output <- tibble::tribble(
    \\end{itemize}
    \\vspace{1mm}",
   "Association of Public Health Laboratories (APHL) Bioinformatics Fellow",
-  "Centers for Disease Control and Prevention; Fellow with APHL",
+  "Centers for Disease Control and Prevention, Fellow with APHL",
   "September 2019 - November 2020",  "Atlanta, GA",  
   "[] * Developing tinselR - an Rshiny application for annotating outbreak trees
    \\begin{itemize}
