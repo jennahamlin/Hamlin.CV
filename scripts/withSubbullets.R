@@ -1,9 +1,6 @@
-## @knitr appointmentsExternal 
-
-
-tibble::tribble(
+output <- tibble::tribble(
   ~ role, ~ company, ~ when, ~ where, ~ details,
-  "Bioinformatician II with Division of Bacterial Diseases, Salary - 95,000",
+  "Bioinformatician II with Division of Bacterial Diseases",
   "Centers for Disease Control and Prevention,  Contractor with ASRT Inc.",
   "November 2020 - Current",  "Atlanta, GA",  
   "[] * Interfacing with state public health laboratories (PHL)
@@ -18,14 +15,14 @@ tibble::tribble(
    \\vspace{1mm}
    * Development of method validation plan for Legionella Species ID tool
    \\begin{itemize}
-     \\item Researched and proposed statically sound validation plan for tool that uses next generation sequencing data
+     \\item Researched and proposed statistically sound validation plan for tool that uses next generation sequencing data
    \\end{itemize}
    \\vspace{1mm}
-   * Phylogenetic and phylodyanamic analyses for Legionella isolates of public health concern
+   * Phylogenetic and phylodynamic analyses for Legionella isolates of public health concern
    \\begin{itemize}
       \\item Performing analyses and generating statistical summaries and visualizations
-      \\item Writing and editing manuscripts for publicaion
-      \\item Identifying scienctic questions answerable with existing data
+      \\item Writing and editing manuscripts for publication
+      \\item Identifying scientific questions answerable with existing data
    \\end{itemize}
     \\vspace{1mm}
    * Developing or testing scripts and pipelines as necessary
@@ -54,29 +51,28 @@ tibble::tribble(
    \\vspace{1mm}
    * 30-day detail on Routine Reporting for COVID-19 Response (June - July 2020)
    \\begin{itemize}
-     \\item Produced daily and weekly reports for task force; Consolidated steps for document creation to be reproducible via one script 
+     \\item Produced daily and weekly reports for task force. Consolidated steps for document creation to be reproducible via one script 
    \\end{itemize}",
   "Bensasson Lab Post-Doctoral Researcher",
-  "University of Georgia",
+  "University of Georgia (UGA)",
   "October 2017 - August 2019",  "Athens, GA",  
-  "item\\_Interface2
-   \\begin{itemize}
-     \\item item\\_communicate
-     \\item item\\_analyses
-   \\end{itemize}",
+  "[] * Directed collaborative research with UGA graduate and undergraduate students \\newline
+     \\vspace{1mm} 
+     * Collated and streamlined genome mapping for 1000 Saccharomyces cerevisiae isolates as lab resource \\newline
+     \\vspace{1mm} 
+     * Used iterative approach to assign 400 genomes to well-defined populations using best practices for population genomics and phylogenetics \\newline
+     \\vspace{1mm} 
+     * Resolved haplotypes for Candida albicans genomes with PacBio sequencing",
   "Moyle Lab Post-Doctoral Researcher",
-  "Indiana University",
+  "Indiana University (IU)",
   "June 2015 - September 2017",  "Bloomington, IN",  
-  "item\\_Interface2
-   \\begin{itemize}
-     \\item item\\_communicate
-     \\item item\\_analyses
-   \\end{itemize}"
- ) %>%
-  vitae::detailed_entries(
-    what = role,
-    when = when, #glue::glue("{start_date}--{end_date}"),
-    with = company,
-    where = where,
-    why = details, .protect = FALSE)
+    "[] * Directed research with faculty, graduate, and undergraduates at IU and with two external universities \\newline
+     \\vspace{1mm} 
+     * Genome-wide study of factors that determine the likelihood of introgression for Solanum species \\newline
+     \\vspace{1mm} 
+     * Streamlined genotyping to generate biological replicates. Validate data accuracy using technical replicates along with statistical analyses \\newline
+     \\vspace{1mm} 
+     * Identified targeting rates and floral trait differences with biological \\& technical replicates in large-scale crossing project via statistical analyses") 
 
+
+output
