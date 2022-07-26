@@ -1,8 +1,16 @@
 output <- tibble::tribble(
   ~ role, ~ company, ~ when, ~ where, ~ details,
+  "Health Scientist Informatics",
+  "Centers for Disease Control and Prevention",
+  "June 2022 - Current",  "Atlanta, GA",
+   "[] * General informatics for Legionella
+   \\begin{itemize}
+     \\item Continued projects from previous position with ASRT, inc. 
+   \\end{itemize}
+   \\vspace{1mm}",
   "Bioinformatician II with Division of Bacterial Diseases",
   "Centers for Disease Control and Prevention,  Contractor with ASRT Inc.",
-  "November 2020 - Current",  "Atlanta, GA",  
+  "November 2020 - June 2022",  "Atlanta, GA",  
   "[] * Interfacing with state public health laboratories (PHL)
    \\begin{itemize}
      \\item Communicated with members of state PHL to provide guidenance regarding bionformatics and genomics for Legionella species
