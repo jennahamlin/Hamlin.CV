@@ -1,4 +1,7 @@
 title,year,venue,city, type,author
+"A Community Outbreak of Legionnaires' Disease Possibly Associated with an Outdoor Hotel Spa -- California, 2021",2023,Council of State and Territorial Epidemiologists,"Salt Lake City, Utah",poster,"Burmester J, Evans S, Ferguson D, Lunsforward R, Rutschmann S, Kimura A, Flores E, Mukhopadhyay R, Hannapel E, Bertumen JB, Hamlin JAP, Miller, G "
+Combining Mash and NCBI Datasets via Nextflow for a Legionella Species Identification Tool,2023,CDC Laboratory Science Symposium,"Atlanta, GA",poster,"Hamlin JAP, Willby MJ, and Winchell JM"
+Spread of Sequence Type ST222 from the Great Lakes Area to the US West Coast and Europe,2023,CDC Laboratory Science Symposium,"Atlanta, GA",poster,"Kozak-Muiznieks NA, Hamlin JAP, Lucas C, and Willby MJ"
 Combining Mash and NCBI Datasets via Nextflow for a Legionella Species Identification Tool,2022,American Society for Microbiology,"Baltimore, MD",poster,"Hamlin JAP, Willby MJ, and Winchell JM"
 Spread of Sequence Type ST222 from the Great Lakes Area to the US West Coast and Europe,2022,International Conference on Legionella,"Yokohama, Japan",poster,"Kozak-Muiznieks NA, Hamlin JAP, Lucas C, and Willby MJ"
 Tinsel - an Rshiny app for phylogenetic tree annotation,2020,Association of Public Health Laboratories Annual Meeting,Virtual,poster,Hamlin JAP and Williams-Newkirk A
@@ -9,6 +12,7 @@ Higher Prevalence of Genetic Exchange Given Geographic Proximity,2017,Southeaste
 "Two Loci Contribute Epistastically to Heterospecific Pollen Tube Rejection, a Postmating Isolating Barrier Between Species",2016,Solanaceae Conference,"Davis, CA",poster,Hamlin JAP and Moyle LC
 What Drives Phenotypic and Genetic Divergence for Iris hexagona,2014,Botanical Society of America,"Boise, ID",poster,Hamlin JAP and Arnold ML
 Comparative Phylogeography of Two Louisiana Iris Species: Iris fulva and Iris brevicaulis,2011,American Genetic Association,"Guanajuato, Mexico ",poster,"Hamlin JAP, Brothers AN, Ballerini ES, and Arnold ML"
+mashWrapper,2022,Genomics Interest Group - techincal,"Atlanta, GA",talk,
 tinselR - An RShiny App for Phylogenetic Tree Annotation,2020,CDC Data Viz Day,"Atlanta, GA",talk,
 Start Writing Manuscripts in Rmarkdown,2020,Genomics Interest Group - techincal,"Atlanta, GA",talk,
 Build Shiny Apps,2018,Warnell School of Forestry & Natural Resources Data Manipulation and Management course,"Athens, GA",talk,

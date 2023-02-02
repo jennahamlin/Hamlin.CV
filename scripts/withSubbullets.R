@@ -47,7 +47,7 @@ output <- tibble::tribble(
   "Association of Public Health Laboratories (APHL) Bioinformatics Fellow",
   "Centers for Disease Control and Prevention, Fellow with APHL",
   "September 2019 - November 2020",  "Atlanta, GA",  
-  "[] * Developing tinselR - an Rshiny application for annotating outbreak trees
+  "[] * Developed tinselR - an Rshiny application for annotating outbreak trees
    \\begin{itemize}
      \\item tinselR is an open-source downloadable package in the R language used for phylogenetic tree analysis and visualization
    \\end{itemize}
