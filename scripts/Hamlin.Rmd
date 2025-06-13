@@ -5,10 +5,11 @@ position: "Health Scientist - Informatics"
 address: "Respiratory Diseases Laboratory Branch, Centers for Disease Control and Prevention, Atlanta, GA, USA"
 email: "jhamlin@cdc.gov"
 github: jennahamlin
-aboutme: "I am a scientist with over 10 years of experience in classical genetics, genomics, and evolutionary biology. My training spans a range of tools and approaches—including bioinformatics, population genetics, and species distribution modeling—with a strong emphasis on experimental design. As my computational skills have grown, the genomes of the organisms I study have become smaller. Currently, I work at the intersection of public health, application development, and the study of organisms that pose risks to human health, with a focus on producing reproducible research."
+aboutme: "I am a scientist with over 10 years of experience in classical genetics, genomics, and evolutionary biology. My training spans a range of tools and approaches—including bioinformatics, population genetics, and species distribution modeling—with a strong emphasis on experimental design. As my computational skills increased, the genomes of the organisms I study have become smaller. Currently, I work at the intersection of public health, application development, and the study of organisms that pose risks to human health, with a focus on reproducible research."
 date: "`r format(Sys.time(), '%B %Y')`"
 headcolor: 414141
 output: vitae::awesomecv
+latex_engine: xelatex
 knit: (function(inputFile, encoding){
   rmarkdown::render(inputFile, encoding = encoding,
   output_dir = here::here("output"), output_format = "all") })
@@ -25,13 +26,14 @@ library(glue)
 ```
 
 ```{r get data, include=FALSE}
+## Load in data files
 
 ## Education
 edu <- readr::read_csv(here::here("data", "education.csv"))
 
 ## Appointments
-#appointments <- readr::read_csv(here::here("data", "appointments.csv"))
- 
+appointments <- readr::read_csv(here::here("data", "appointments.csv"))
+
 ## Skills
  skills <- readr::read_csv(here::here("data", "skills.csv")) %>% 
    dplyr::group_by(category) %>% 
@@ -81,24 +83,24 @@ vitae::detailed_entries(edu,
 
 ```{r appointments}
 
-## adjusted code so that I code have sub-bullet point explanation
-# appointments %>% 
-#   vitae::detailed_entries(
-#     what = role,
-#     when = glue("{start_date}--{end_date}"),
-#     with = company,
-#     where = where,
-#     why = details)
-
-appointments <- source(here::here("scripts", "withSubbullets.R"))
-
-appointments$value %>%
+appointments %>% 
   vitae::detailed_entries(
     what = role,
-    when = when, #glue::glue("{start_date}--{end_date}"),
+    when = glue("{start_date}--{end_date}"),
     with = company,
     where = where,
-    why = details, .protect = FALSE)
+    why = details)
+
+## Because resume in 2022 need more descriptive bullets, I add this. 
+## If using then need to comment above call in loading data for appointments
+#appointments <- source(here::here("scripts", "withbullets.R"))
+# appointments$value %>%
+#    vitae::detailed_entries(
+#      what = role,
+#      when = when, #glue::glue("{start_date}--{end_date}"),
+#      with = company,
+#      where = where,
+#      why = details, .protect = FALSE)
 
 ```
 

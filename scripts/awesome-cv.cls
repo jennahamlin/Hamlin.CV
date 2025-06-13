@@ -574,8 +574,10 @@
 % Usage: \cvsection{<section-title>}
 
 \renewcommand{\section}[1]{%
+	\vspace{-6mm} % space between Appointments and BS in Biology
 	\vspace{\acvSectionTopSkip}
 	\sectionstyle{#1}
+	\vspace{-6mm} % space between CDC and Appointments
 	\phantomsection
 	\color{gray}\vhrulefill{0.9pt}
 }
@@ -584,7 +586,6 @@
 % Usage: \cvsubsection{<subsection-title>}
 \renewcommand{\subsection}[1]{%
 	\vspace{\acvSectionContentTopSkip}
-	\vspace{-3mm}
 	\subsectionstyle{#1}
 	\phantomsection
 }
@@ -596,7 +597,7 @@
   \paragraphstyle
 }{%
   \par
-  \vspace{2mm}
+  \vspace{3mm}
 }
 
 % Define an environment for cventry
@@ -609,7 +610,7 @@
 % Define an entry of cv information
 % Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
 \newcommand*{\cventry}[5]{
-%  \vspace{-2.0mm}
+  \vspace{3.0mm}
   \setlength\tabcolsep{0pt}%
   \setlength{\extrarowheight}{0pt}%
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}%
@@ -687,10 +688,11 @@
   \begin{itemize}[leftmargin=2ex, nosep, noitemsep]
     \setlength{\parskip}{0pt}
     \renewcommand{\labelitemi}{\bullet}
+
 }{%
   \end{itemize}
   \end{justify}
-  \vspace{-4.0mm}
+  \vspace{1.0mm}
 }
 
 
