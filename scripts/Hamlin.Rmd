@@ -54,7 +54,9 @@ pubs<-scholar::get_publications("OIIf5T4AAAAJ&hl")%>%
   dplyr::filter(journal  != "University of Georgia" & journal != "Bulletin of the Ecological Society of America") %>% #exclude thesis
   dplyr::arrange(dplyr::desc(year))
 
-pubs$journal <-plyr::revalue(pubs$journal,c("G" = "G3")) #necessary as when pubs imported from scholar G3 becomes G, this corrects that
+pubs$journal <-plyr::revalue(pubs$journal,c("G" = "G3")) #corrects G to G3,due to when pubs imported from scholar
+pubs$journal[grep("Reticulate Evolution", pubs$journal)] <- "Reticulate Evolution"
+
 
 ## Presentations - talks
 presentations <- readr::read_csv(here::here("data", "presentations.csv")) %>% 
@@ -91,7 +93,7 @@ appointments %>%
     where = where,
     why = details)
 
-## Because resume in 2022 need more descriptive bullets, I add this. 
+## Because resume in 2022 need more descriptive bullets, I added this. 
 ## If using then need to comment above call in loading data for appointments
 #appointments <- source(here::here("scripts", "withbullets.R"))
 # appointments$value %>%

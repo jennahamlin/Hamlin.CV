@@ -1,7 +1,6 @@
 role, company, where,start_date,end_date,details
-Health Scientist Informatics,Centers for Disease Control and Prevention,"Atlanta, GA",22-Jun,Current, General data analyses for Legionella
+Health Scientist Informatics,Centers for Disease Control and Prevention,"Atlanta, GA",22-Jun,Current, General bioinformatics for Legionella
 Health Scientist Informatics,Centers for Disease Control and Prevention,"Atlanta, GA",22-Jun,Current, International collaboration: Legionella International Typing (LIT) group developing a new typing scheme
-Health Scientist Informatics,Centers for Disease Control and Prevention,"Atlanta, GA",22-Jun,Current,
 Bioinformatician II with Division of Bacterial Diseases,"Centers for Disease Control and Prevention, Contractor with ASRT Inc.","Atlanta, GA",20-Nov,22-Jun,Interfacing with state public health laboratories for bioinformatics and genomics help
 Bioinformatician II with Division of Bacterial Diseases,"Centers for Disease Control and Prevention, Contractor with ASRT Inc.","Atlanta, GA",20-Nov,22-Jun,Refactored Species ID tool with Nextflow wrapped around for future deployment on Nextflow tower
 Bioinformatician II with Division of Bacterial Diseases,"Centers for Disease Control and Prevention, Contractor with ASRT Inc.","Atlanta, GA",20-Nov,22-Jun,Phylogenetic and phylodyanamic analyses for a Leginella sequence types of public health concern

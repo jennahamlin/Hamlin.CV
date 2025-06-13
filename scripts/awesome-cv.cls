@@ -574,10 +574,10 @@
 % Usage: \cvsection{<section-title>}
 
 \renewcommand{\section}[1]{%
-	\vspace{-6mm} % space between Appointments and BS in Biology
+	\vspace{-2mm} % space between Appointments and BS in Biology
 	\vspace{\acvSectionTopSkip}
 	\sectionstyle{#1}
-	\vspace{-6mm} % space between CDC and Appointments
+	\vspace{-2mm} % space between CDC and Appointments
 	\phantomsection
 	\color{gray}\vhrulefill{0.9pt}
 }
@@ -692,7 +692,7 @@
 }{%
   \end{itemize}
   \end{justify}
-  \vspace{1.0mm}
+  \vspace{0.5mm}
 }
 
 
