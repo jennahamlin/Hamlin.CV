@@ -15,7 +15,6 @@ knit: (function(inputFile, encoding){
   output_dir = here::here("output"), output_format = "all") })
 --- 
 
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 
@@ -129,7 +128,7 @@ pubs %>%
 
 # Presentations
 
-**Talks**
+***Talks***
 
 ```{r talks}
 presentations %>%
@@ -142,7 +141,7 @@ presentations %>%
     .protect = TRUE)
 ```
 
-**Posters**
+***Posters***
 
 ```{r posters}
 presentations %>%
