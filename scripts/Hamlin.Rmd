@@ -5,7 +5,7 @@ position: "Health Scientist - Informatics"
 address: "Respiratory Diseases Laboratory Branch, Centers for Disease Control and Prevention, Atlanta, GA, USA"
 email: "jhamlin@cdc.gov"
 github: jennahamlin
-aboutme: "I am a scientist with over 10 years of experience in classical genetics, genomics, and evolutionary biology. My training spans a range of tools and approaches—including bioinformatics, population genetics, and species distribution modeling—with a strong emphasis on experimental design. As my computational skills increased, the genomes of the organisms I study have become smaller. Currently, I work at the intersection of public health, application development, and the study of organisms that pose risks to human health, with a focus on reproducible research."
+aboutme: "I am a scientist with over 10 years of experience in classical genetics, genomics, and evolutionary biology. My training spans a range of tools and approaches—including bioinformatics, population genetics, and species distribution modeling—with a strong emphasis on experimental design. As my computational skills increased, the genomes of the organisms I study have become smaller. Currently, I work at the intersection of public health (ph), ph tool development, and the study of pathogens, with a focus on reproducible research."
 date: "`r format(Sys.time(), '%B %Y')`"
 headcolor: 414141
 output: vitae::awesomecv
