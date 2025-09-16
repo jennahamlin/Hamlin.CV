@@ -151,6 +151,7 @@ presentations %>%
     when = year,
     with = title,
     where = city,
+    why = author,
     .protect = TRUE)
 ```
 
