@@ -1,0 +1,23 @@
+category,skill
+Bioinformatics,NGS data analysis
+Bioinformatics,cgMLST and wgMLST development
+Bioinformatics,SNP calling workflows
+Bioinformatics,Outbreak investigation support
+Bioinformatics,"Public databases (NCBI, ENA, pubMLST)"
+Bioinformatics,"Computational biology tools for alignment, variant calling, phylogenetics, genome assembly "
+Scripting & Automation,"Python, Bash and R scripting"
+Scripting & Automation,Workflow automation
+Scripting & Automation,Pipeline refactoring and validation
+Scripting & Automation,Maintenance of legacy pipelines
+Scripting & Automation,Version control with Git/GitHub
+Compute Infrastructure,"Operating systems: Linux, Windows, macOS"
+Compute Infrastructure,"Containerized environments (Docker, Singularity)"
+Compute Infrastructure,System troubleshooting and optimization
+Documentation & Communication,"Standard Operating Procedures (SOPs), job aids, and README files"
+Documentation & Communication,"Scientific manuscripts, abstracts, and figures"
+Documentation & Communication,Knowledge transfer materials for internal teams and collaborators
+Documentation & Communication,Conference presentations 
+Standards & Compliance,Public health data standards and regulatory requirements
+Standards & Compliance,Genomic surveillance workflows
+Standards & Compliance,Validation datasets and quality control reporting
+Standards & Compliance,Version-controlled deployment of pipelines and tools

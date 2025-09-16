@@ -34,7 +34,7 @@ edu <- readr::read_csv(here::here("data", "education.csv"))
 appointments <- readr::read_csv(here::here("data", "appointments.csv"))
 
 ## Skills
- skills <- readr::read_csv(here::here("data", "skills.csv")) %>% 
+ skills <- readr::read_csv(here::here("data", "skillsUpdated.csv")) %>% 
    dplyr::group_by(category) %>% 
    dplyr::mutate(skill = paste(skill, collapse = ", ")) %>% 
    dplyr::ungroup()%>% 
@@ -151,7 +151,6 @@ presentations %>%
     when = year,
     with = title,
     where = city,
-    why = author,
     .protect = TRUE)
 ```
 
