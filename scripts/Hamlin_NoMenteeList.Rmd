@@ -1,0 +1,171 @@
+---
+name: "Jenna A. P."
+surname: "Hamlin"
+position: "Health Scientist - Informatics"
+email: "jennahamlin@gmail.com"
+github: jennahamlin
+aboutme: "I am a scientist with over 10 years of experience in classical genetics, genomics, and evolutionary biology. My training spans a range of tools and approaches—including bioinformatics, population genetics, and species distribution modeling—with a strong emphasis on experimental design. Currently, I work at the intersection of public health (ph), ph tool development, and the study of pathogens, with a focus on reproducible research."
+date: "`r format(Sys.time(), '%B %Y')`"
+headcolor: 414141
+output: vitae::awesomecv
+latex_engine: xelatex
+knit: (function(inputFile, encoding){
+  rmarkdown::render(inputFile, encoding = encoding,
+  output_dir = here::here("output"), output_format = "all") })
+--- 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+
+library(vitae)
+library(here)
+library(magrittr)
+library(glue)
+
+options(stringsAsFactors = FALSE)
+```
+
+```{r get data, include=FALSE}
+## Load in data files
+
+## Education
+edu <- readr::read_csv(here::here("data", "education.csv"))
+
+## Appointments
+appointments <- readr::read_csv(here::here("data", "appointments.csv"))
+
+## Skills
+ skills <- readr::read_csv(here::here("data", "skillsUpdated.csv")) %>% 
+   dplyr::group_by(category) %>% 
+   dplyr::mutate(skill = paste(skill, collapse = ", ")) %>% 
+   dplyr::ungroup()%>% 
+   unique
+ 
+## Publications - my google id here
+pubs<-scholar::get_publications("OIIf5T4AAAAJ&hl")%>%
+  dplyr::mutate(author = author%>%
+                as.character %>%
+                stringr::str_trim(),
+                first_author = dplyr::case_when(stringr::str_starts(author, "JAP Hamlin") ~ TRUE,
+                                                TRUE ~ FALSE),
+                preprint = dplyr::case_when(journal %in% c("bioRxiv", "BioRxiv") ~ TRUE,
+                                            TRUE ~ FALSE)) %>%
+
+  dplyr::filter(journal  != "University of Georgia" & journal != "Bulletin of the Ecological Society of America") %>% #exclude thesis
+  dplyr::arrange(dplyr::desc(year))
+
+pubs$journal <-plyr::revalue(pubs$journal,c("G" = "G3")) #corrects G to G3,due to when pubs imported from scholar
+pubs$journal[grep("Reticulate Evolution", pubs$journal)] <- "Reticulate Evolution"
+
+
+## Presentations - talks
+presentations <- readr::read_csv(here::here("data", "presentations.csv")) %>% 
+  dplyr::arrange(desc(year))
+
+## Software
+packages <- readr::read_csv(here::here("data", "packages.csv"))
+
+## Mentoring
+mentor <- readr::read_csv(here::here("data", "mentor.csv"))
+
+```
+
+# Education
+
+```{r education}
+vitae::detailed_entries(edu, 
+                 when = awarded,
+                 what = degree,
+                 where = loc,
+                 with = uni)
+
+```
+
+# Appointments
+
+```{r appointments}
+
+appointments %>% 
+  vitae::detailed_entries(
+    what = role,
+    when = glue("{start_date}--{end_date}"),
+    with = company,
+    where = where,
+    why = details)
+
+## Because resume in 2022 need more descriptive bullets, I added this. 
+## If using then need to comment above call in loading data for appointments
+#appointments <- source(here::here("scripts", "withbullets.R"))
+# appointments$value %>%
+#    vitae::detailed_entries(
+#      what = role,
+#      when = when, #glue::glue("{start_date}--{end_date}"),
+#      with = company,
+#      where = where,
+#      why = details, .protect = FALSE)
+
+```
+
+# Skills
+
+```{r skills}
+skills %>% 
+  vitae::detailed_entries(what = skill, with = category)
+```
+
+# Publications
+
+```{r publications}
+pubs %>%
+  dplyr::filter(!preprint) %>%
+  vitae::detailed_entries(
+    what = title,
+    when = year,
+    with = author,
+    where = journal,
+    .protect = TRUE
+  )
+```
+
+# Presentations
+
+***Talks***
+```{r talks}
+presentations %>%
+  dplyr::filter(type == "talk")%>%
+  vitae::detailed_entries(
+    what = venue,
+    when = year,
+    with = title,
+    where = city,
+    .protect = TRUE)
+```
+
+***Posters***
+```{r posters}
+presentations %>%
+  dplyr::filter(type == "poster")%>%
+  vitae::detailed_entries(
+    what = venue,
+    when = year,
+    with = title,
+    where = city,
+    why = author,
+    .protect = TRUE)
+```
+
+# Packages
+
+```{r packages}
+
+packages %>% 
+  vitae::detailed_entries(
+    what = role,
+    when = year,
+    with = title,
+     where = location,
+    .protect = TRUE)
+```
+
+
+

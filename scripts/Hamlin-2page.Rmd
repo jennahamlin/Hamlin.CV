@@ -21,13 +21,10 @@ library(vitae)
 library(here)
 library(magrittr)
 library(glue)
-
-options(stringsAsFactors = FALSE)
 ```
 
 ```{r get data, include=FALSE}
 ## Load in data files
-
 ## Education
 edu <- readr::read_csv(here::here("data", "education.csv"))
 
@@ -42,31 +39,51 @@ work <- readr::read_csv(here::here("data", "appointments.csv"))
    unique
  
 ## Publications - my google id here
-pubs<-scholar::get_publications("OIIf5T4AAAAJ&hl")%>%
-  dplyr::mutate(author = author%>%
-                as.character %>%
-                stringr::str_trim(),
-                first_author = dplyr::case_when(stringr::str_starts(author, "JAP Hamlin") ~ TRUE,
-                                                TRUE ~ FALSE),
-                preprint = dplyr::case_when(journal %in% c("bioRxiv", "BioRxiv") ~ TRUE,
-                                            TRUE ~ FALSE)) %>%
+shorten_journal_names <- function(journal_names) {
+  if (!requireNamespace("journalabbr", quietly = TRUE)) {
+    stop("Please install the 'journalabbr' package: install.packages('journalabbr')")
+  }
+  if (!requireNamespace("dplyr", quietly = TRUE)) {
+    stop("Please install the 'dplyr' package: install.packages('dplyr')")
+  }
 
-  dplyr::filter(journal  != "University of Georgia" & journal != "Bulletin of the Ecological Society of America") %>% #exclude thesis
-  dplyr::arrange(dplyr::desc(year))
+  abbr_table <- journalabbr:::abbrtable_sys
 
-pubs$journal <-plyr::revalue(pubs$journal,c("G" = "G3")) #corrects G to G3,due to when pubs imported from scholar
-pubs$journal[grep("Reticulate Evolution", pubs$journal)] <- "Reticulate Evolution"
+  # create input dataframe
+  input_df <- data.frame(journal_original = journal_names, stringsAsFactors = FALSE) %>%
+    dplyr::mutate(journal_lower = tolower(journal_original))
 
+  # Prepare abbreviation table: it already has journal_lower and journal_abbr
+  abbr_df <- abbr_table %>%
+    dplyr::select(journal_lower, journal_abbr) %>%
+    # it’s good practice to ensure lowercase matching
+    dplyr::mutate(journal_lower = tolower(journal_lower))
 
-## Presentations - talks
-presentations <- readr::read_csv(here::here("data", "presentations.csv")) %>% 
-  dplyr::arrange(desc(year))
+  # Join
+  joined <- dplyr::left_join(input_df, abbr_df, by = "journal_lower")
 
-## Software
-packages <- readr::read_csv(here::here("data", "packages.csv"))
+  # Fallback: where no abbreviation is found
+  result <- ifelse(
+    is.na(joined$journal_abbr),
+    joined$journal_original,
+    joined$journal_abbr
+  )
 
-## Mentoring
-mentor <- readr::read_csv(here::here("data", "mentor.csv"))
+  return(result)
+}
+
+ pubs <- scholar::get_publications("OIIf5T4AAAAJ&hl") %>%
+  dplyr::mutate(
+    author = author %>% as.character() %>% stringr::str_trim(),
+    first_author = dplyr::case_when(stringr::str_starts(author, "JAP Hamlin") ~ TRUE, TRUE ~ FALSE),
+    preprint = dplyr::case_when(journal %in% c("bioRxiv", "BioRxiv") ~ TRUE, TRUE ~ FALSE) ) %>%
+  filter(journal != "University of Georgia" & journal != "Bulletin of the Ecological Society of America") %>%
+  arrange(desc(year)) %>%
+  mutate(journal_short = shorten_journal_names(journal))
+ 
+pubs$journal_short <-plyr::revalue(pubs$journal_short,c("G" = "G3")) #corrects G to G3
+pubs$journal_short[grep("Reticulate Evolution", pubs$journal_short)] <- "Reticulate Evolution"
+pubs$journal_short <-plyr::revalue(pubs$journal_short,c("Rapidly evolving genes and genetic systems" = "Rapidly Evol. Genes Genet. Syst.")) 
 
 ```
 
@@ -78,7 +95,6 @@ vitae::detailed_entries(edu,
                  what = degree,
                  where = loc,
                  with = uni)
-
 ```
 
 # Work Experience
@@ -111,7 +127,7 @@ pubs %>%
     what = title,
     when = year,
     with = author,
-    where = journal,
+    where = journal_short,
     .protect = TRUE
   )
 ```
