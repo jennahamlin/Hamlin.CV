@@ -4,7 +4,7 @@ surname: "Hamlin"
 position: "Health Scientist - Informatics"
 email: "jennahamlin@gmail.com"
 github: jennahamlin
-aboutme: "I am a scientist with over 10 years of experience in classical genetics, genomics, and evolutionary biology. My training spans a range of tools and approaches—including bioinformatics, population genetics, and species distribution modeling—with a strong emphasis on experimental design. Currently, I work at the intersection of public health (ph), ph tool development, and the study of pathogens, with a focus on reproducible research."
+aboutme: "I am a scientist with over 10 years of experience in bioinformatics, genomics, and classical genetics. My training includes a broad set of skills and approaches including programming and experimental design to evolutionary biology and species distribution modeling. Currently, I work at the intersection of public health (ph), ph tool development, and the study of pathogens, with a focus on reproducible research."
 date: "`r format(Sys.time(), '%B %Y')`"
 headcolor: 414141
 output: vitae::awesomecv
@@ -31,8 +31,8 @@ options(stringsAsFactors = FALSE)
 ## Education
 edu <- readr::read_csv(here::here("data", "education.csv"))
 
-## Appointments
-appointments <- readr::read_csv(here::here("data", "appointments.csv"))
+## Work Experience
+work <- readr::read_csv(here::here("data", "appointments.csv"))
 
 ## Skills
  skills <- readr::read_csv(here::here("data", "skillsUpdated.csv")) %>% 
@@ -81,28 +81,17 @@ vitae::detailed_entries(edu,
 
 ```
 
-# Appointments
+# Work Experience
 
-```{r appointments}
+```{r work}
 
-appointments %>% 
+work %>% 
   vitae::detailed_entries(
     what = role,
     when = glue("{start_date}--{end_date}"),
     with = company,
     where = where,
     why = details)
-
-## Because resume in 2022 need more descriptive bullets, I added this. 
-## If using then need to comment above call in loading data for appointments
-#appointments <- source(here::here("scripts", "withbullets.R"))
-# appointments$value %>%
-#    vitae::detailed_entries(
-#      what = role,
-#      when = when, #glue::glue("{start_date}--{end_date}"),
-#      with = company,
-#      where = where,
-#      why = details, .protect = FALSE)
 
 ```
 
@@ -127,82 +116,3 @@ pubs %>%
   )
 ```
 
-# Presentations
-
-***Talks***
-
-```{r talks}
-presentations %>%
-  dplyr::filter(type == "talk")%>%
-  vitae::detailed_entries(
-    what = venue,
-    when = year,
-    with = title,
-    where = city,
-    .protect = TRUE)
-```
-
-***Posters***
-
-```{r posters}
-presentations %>%
-  dplyr::filter(type == "poster")%>%
-  vitae::detailed_entries(
-    what = venue,
-    when = year,
-    with = title,
-    where = city,
-    why = author,
-    .protect = TRUE)
-```
-
-# Packages
-
-```{r packages}
-
-packages %>% 
-  vitae::detailed_entries(
-    what = role,
-    when = year,
-    with = title,
-     where = location,
-    .protect = TRUE)
-```
-
-# Mentoring
-
-**University of Georgia graduate students**
-
-```{r uga grad}
-mentor %>%
-   dplyr::filter(where == "University of Georgia" & level == "graduate")%>%
-  vitae::brief_entries(
-    what = who)
-```
-
-**University of Georgia undergraduate students**
-
-```{r uga undergrad}
-mentor %>%
-   dplyr::filter(where == "University of Georgia" & level == "undergraduate")%>%
-  vitae::brief_entries(
-    what = who)
-```
-
-**Indiana University graduate students**
-
-```{r iu grad}
-mentor %>%
-   dplyr::filter(where == "Indiana University" & level == "graduate")%>%
-  vitae::brief_entries(
-    what = who)
-```
-
-**Indiana University undergraduate students**
-
-```{r iu undergrad}
-mentor %>%
-   dplyr::filter(where == "Indiana University" & level == "undergraduate")%>%
-  vitae::brief_entries(
-    what = who)
-```

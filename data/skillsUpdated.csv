@@ -1,22 +1,23 @@
 category,skill
-Bioinformatics,NGS data analysis
-Bioinformatics,cgMLST and wgMLST development
+Bioinformatics,NGS data analysis (Illumina and PacBio)
 Bioinformatics,SNP calling workflows
-Bioinformatics,Outbreak investigation support
 Bioinformatics,"Public databases (NCBI, ENA, pubMLST)"
-Bioinformatics,"Computational biology tools for alignment, variant calling, phylogenetics, genome assembly "
-Scripting & Automation,"Python, Bash and R scripting"
-Scripting & Automation,Workflow automation
-Scripting & Automation,Pipeline refactoring and validation
-Scripting & Automation,Maintenance of legacy pipelines
-Scripting & Automation,Version control with Git/GitHub
-Compute Infrastructure,"Operating systems: Linux, Windows, macOS"
+Bioinformatics,"Computational biology tools for alignment (BWA & minimap), variant calling (Samtools & BCFtools), phylogenetics (RAxML & IQ-Tree), genome assembly (SPAdes & Quast)"
+Bioinformatics,Allele typing scheme development
+Bioinformatics,Outbreak investigation support
+Programming & Automation,"Python, Bash and R"
+Programming & Automation,Workflow automation (Nextflow and Shell)
+Programming & Automation,Pipeline refactoring and validation
+Programming & Automation,Maintenance of legacy pipelines
+Programming & Automation,Version control with Git/GitHub
+Compute Infrastructure,High Performance Computing (HPC) cluster
+Compute Infrastructure,"Linux, Windows, macOS"
 Compute Infrastructure,"Containerized environments (Docker, Singularity)"
 Compute Infrastructure,System troubleshooting and optimization
-Documentation & Communication,"Standard Operating Procedures (SOPs), job aids, and README files"
 Documentation & Communication,"Scientific manuscripts, abstracts, and figures"
 Documentation & Communication,Knowledge transfer materials for internal teams and collaborators
 Documentation & Communication,Conference presentations 
+Documentation & Communication,"Standard Operating Procedures (SOPs), job aids, and README files"
 Standards & Compliance,Public health data standards and regulatory requirements
 Standards & Compliance,Genomic surveillance workflows
 Standards & Compliance,Validation datasets and quality control reporting

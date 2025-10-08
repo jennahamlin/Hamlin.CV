@@ -574,10 +574,10 @@
 % Usage: \cvsection{<section-title>}
 
 \renewcommand{\section}[1]{%
-	\vspace{-2mm} % space between Appointments and BS in Biology
+	\vspace{-5mm} % space between Appointments and BS in Biology
 	\vspace{\acvSectionTopSkip}
 	\sectionstyle{#1}
-	\vspace{-2mm} % space between CDC and Appointments
+	\vspace{-5mm} % space between CDC and Appointments
 	\phantomsection
 	\color{gray}\vhrulefill{0.9pt}
 }
@@ -610,7 +610,7 @@
 % Define an entry of cv information
 % Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
 \newcommand*{\cventry}[5]{
-  \vspace{3.0mm}
+  \vspace{1.5mm}
   \setlength\tabcolsep{0pt}%
   \setlength{\extrarowheight}{0pt}%
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}%
