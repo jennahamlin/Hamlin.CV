@@ -1,4 +1,4 @@
 title,year,location,role, release
- tinselR - An R package for visulizing and annotating phylogenetic trees,2019,https://github.com/jennahamlin/tinselR, Author and maintainer, GitHub
-mashwrapper - a Python tool for parsing mash results,2022,https://github.com/CDCgov/mashwrapper, Author and maintainer,N/A
-el_gato - Sequence Based Typing of Illumina data for Legionella pneumophila,2025,https://github.com/CDCgov/el_gato,Maintainer and Author,
+el_gato - Sequence Based Typing of Illumina data for Legionella pneumophila,2025,Maintainer and author,https://github.com/CDCgov/el_gato,
+mashwrapper - a Python tool for parsing mash results,2022, Author and maintainer,https://github.com/CDCgov/mashwrapper,
+ tinselR - An R package for visulizing and annotating phylogenetic trees,2019, Author and maintainer,https://github.com/jennahamlin/tinselR,

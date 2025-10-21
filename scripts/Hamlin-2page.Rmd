@@ -4,15 +4,17 @@ surname: "Hamlin"
 position: "Health Scientist - Informatics"
 email: "jennahamlin@gmail.com"
 github: jennahamlin
-aboutme: "I am a scientist with over 10 years of experience in bioinformatics, genomics, and classical genetics. My training includes a broad set of skills and approaches including programming and experimental design to evolutionary biology and species distribution modeling. Currently, I work at the intersection of public health (ph), ph tool development, and the study of pathogens, with a focus on reproducible research."
+aboutme: "I am a scientist with over 10 years of experience in bioinformatics, genomics, and classical genetics. My training includes a broad set of skills and approaches including programming and experimental design to evolutionary biology and species distribution modeling. Currently, I work at the intersection of public health (ph), ph computational tool development, and the study of pathogens, with a focus on reproducible research."
 date: "`r format(Sys.time(), '%B %Y')`"
 headcolor: 414141
+
 output: vitae::awesomecv
 latex_engine: xelatex
-knit: (function(inputFile, encoding){
-  rmarkdown::render(inputFile, encoding = encoding,
-  output_dir = here::here("output"), output_format = "all") })
---- 
+
+header-includes:
+  - \usepackage{geometry}
+  - \newgeometry{left=1cm, right=1.5cm, top=1.0cm, bottom=1.0cm, footskip=0.5cm}
+---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
@@ -21,69 +23,87 @@ library(vitae)
 library(here)
 library(magrittr)
 library(glue)
+library(readr)
+library(dplyr)
+library(stringr)
+library(scholar)
 ```
 
 ```{r get data, include=FALSE}
-## Load in data files
-## Education
-edu <- readr::read_csv(here::here("data", "education.csv"))
 
-## Work Experience
-work <- readr::read_csv(here::here("data", "appointments.csv"))
+# ---- Load data ----
+edu  <- readr::read_csv(here("data", "education.csv"))
+work <- readr::read_csv(here("data", "appointments.csv"))
 
-## Skills
- skills <- readr::read_csv(here::here("data", "skillsUpdated.csv")) %>% 
-   dplyr::group_by(category) %>% 
-   dplyr::mutate(skill = paste(skill, collapse = ", ")) %>% 
-   dplyr::ungroup()%>% 
-   unique
- 
-## Publications - my google id here
+skills <- readr::read_csv(here("data", "skillsUpdated.csv")) %>%
+  group_by(category) %>%
+  summarise(skill = paste(skill, collapse = ", "), .groups = "drop")
+
+packages <- readr::read_csv(here("data", "packages.csv"))
+
+# ---- Helper functions ----
+
 shorten_journal_names <- function(journal_names) {
   if (!requireNamespace("journalabbr", quietly = TRUE)) {
     stop("Please install the 'journalabbr' package: install.packages('journalabbr')")
   }
-  if (!requireNamespace("dplyr", quietly = TRUE)) {
-    stop("Please install the 'dplyr' package: install.packages('dplyr')")
-  }
 
-  abbr_table <- journalabbr:::abbrtable_sys
+  abbr_df <- journalabbr:::abbrtable_sys %>%
+    select(journal_lower, journal_abbr) %>%
+    mutate(journal_lower = tolower(journal_lower))
 
-  # create input dataframe
-  input_df <- data.frame(journal_original = journal_names, stringsAsFactors = FALSE) %>%
-    dplyr::mutate(journal_lower = tolower(journal_original))
+  input_df <- tibble(journal_original = journal_names) %>%
+    mutate(journal_lower = tolower(journal_original))
 
-  # Prepare abbreviation table: it already has journal_lower and journal_abbr
-  abbr_df <- abbr_table %>%
-    dplyr::select(journal_lower, journal_abbr) %>%
-    # it’s good practice to ensure lowercase matching
-    dplyr::mutate(journal_lower = tolower(journal_lower))
+  joined <- left_join(input_df, abbr_df, by = "journal_lower")
 
-  # Join
-  joined <- dplyr::left_join(input_df, abbr_df, by = "journal_lower")
-
-  # Fallback: where no abbreviation is found
-  result <- ifelse(
-    is.na(joined$journal_abbr),
-    joined$journal_original,
-    joined$journal_abbr
-  )
-
-  return(result)
+  if_else(is.na(joined$journal_abbr), joined$journal_original, joined$journal_abbr)
 }
 
- pubs <- scholar::get_publications("OIIf5T4AAAAJ&hl") %>%
-  dplyr::mutate(
-    author = author %>% as.character() %>% stringr::str_trim(),
-    first_author = dplyr::case_when(stringr::str_starts(author, "JAP Hamlin") ~ TRUE, TRUE ~ FALSE),
-    preprint = dplyr::case_when(journal %in% c("bioRxiv", "BioRxiv") ~ TRUE, TRUE ~ FALSE) ) %>%
-  filter(journal != "University of Georgia" & journal != "Bulletin of the Ecological Society of America") %>%
+shorten_title <- function(titles, max_width = 100) {
+  # Apply the shortening logic element-wise to each title
+  vapply(titles, function(title) {
+    title <- trimws(title)
+    
+    # If it's already short enough, return it
+    if (nchar(title) <= max_width) return(title)
+    
+    # Split into words
+    words <- strsplit(title, "\\s+")[[1]]
+    shortened <- c()
+    total_len <- 0
+    for (w in words) {
+      if ((total_len + nchar(w) + 1) > max_width) break
+      shortened <- c(shortened, w)
+      total_len <- total_len + nchar(w) + 1
+    }
+    paste(paste(shortened, collapse = " "), "…")
+  }, character(1))
+}
+
+# ---- Publications ----
+
+pubs <- scholar::get_publications("OIIf5T4AAAAJ&hl") %>%
+  mutate(
+    author       = str_trim(as.character(author)),
+    first_author = str_starts(author, "JAP Hamlin"),
+    preprint     = journal %in% c("bioRxiv", "BioRxiv")
+  ) %>%
+  filter(!journal %in% c("University of Georgia", "Bulletin of the Ecological Society of America")) %>%
   arrange(desc(year)) %>%
-  mutate(journal_short = shorten_journal_names(journal))
- 
-pubs$journal_short <-plyr::revalue(pubs$journal_short,c("G" = "G3")) #corrects G to G3
-pubs$journal_short[grep("Reticulate Evolution", pubs$journal_short)] <- "Reticulate Evolution"
-pubs$journal_short <-plyr::revalue(pubs$journal_short,c("Rapidly evolving genes and genetic systems" = "Rapidly Evol. Genes Genet. Syst.")) 
+  mutate(journal_short = shorten_journal_names(journal)) %>%
+  mutate(
+    journal_short = recode(journal_short,
+      "G" = "G3",
+      "Rapidly evolving genes and genetic systems" = "Rapidly Evol. Genes Genet. Syst."
+    ),
+    title_short = shorten_title(title, max_width = 100)   
+  )
+
+
+# Manual corrections
+pubs$journal_short[str_detect(pubs$journal_short, "Reticulate Evolution")] <- "Reticulate Evolution"
+pubs$journal_short[str_detect(pubs$journal_short, "MMWR Morb Mortal Wkly Rep")] <- "MMWR"
 
 ```
 
@@ -100,7 +120,6 @@ vitae::detailed_entries(edu,
 # Work Experience
 
 ```{r work}
-
 work %>% 
   vitae::detailed_entries(
     what = role,
@@ -122,9 +141,9 @@ skills %>%
 
 ```{r publications}
 pubs %>%
-  dplyr::filter(!preprint) %>%
+  filter(!preprint) %>%
   vitae::detailed_entries(
-    what = title,
+    what = title_short,
     when = year,
     with = author,
     where = journal_short,
@@ -132,3 +151,15 @@ pubs %>%
   )
 ```
 
+# Packages
+
+```{r packages}
+
+packages %>% 
+  vitae::detailed_entries(
+    what = role,
+    when = year,
+    with = title,
+     where = location,
+    .protect = TRUE)
+```

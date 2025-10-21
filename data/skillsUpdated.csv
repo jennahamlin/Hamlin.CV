@@ -5,7 +5,7 @@ Bioinformatics,"Public databases (NCBI, ENA, pubMLST)"
 Bioinformatics,"Computational biology tools for alignment (BWA & minimap), variant calling (Samtools & BCFtools), phylogenetics (RAxML & IQ-Tree), genome assembly (SPAdes & Quast)"
 Bioinformatics,Allele typing scheme development
 Bioinformatics,Outbreak investigation support
-Programming & Automation,"Python, Bash and R"
+Programming & Automation,"Python, Bash, R, and RShiny"
 Programming & Automation,Workflow automation (Nextflow and Shell)
 Programming & Automation,Pipeline refactoring and validation
 Programming & Automation,Maintenance of legacy pipelines
