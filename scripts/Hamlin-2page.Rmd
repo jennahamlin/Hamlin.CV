@@ -14,6 +14,10 @@ latex_engine: xelatex
 header-includes:
   - \usepackage{geometry}
   - \newgeometry{left=1cm, right=1.5cm, top=1.0cm, bottom=1.0cm, footskip=0.5cm}
+
+knit: (function(inputFile, encoding){
+  rmarkdown::render(inputFile, encoding = encoding,
+  output_dir = here::here("output"), output_format = "all") })
 ---
 
 ```{r setup, include=FALSE}
