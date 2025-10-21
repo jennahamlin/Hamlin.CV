@@ -4,6 +4,7 @@ surname: "Hamlin"
 position: "Health Scientist - Informatics"
 email: "jennahamlin@gmail.com"
 github: jennahamlin
+googlescholar: OIIf5T4AAAAJ&hl
 aboutme: "I am a scientist with over 10 years of experience in bioinformatics, genomics, and classical genetics. My training includes a broad set of skills and approaches including programming and experimental design to evolutionary biology and species distribution modeling. Currently, I work at the intersection of public health (ph), ph computational tool development, and the study of pathogens, with a focus on reproducible research."
 date: "`r format(Sys.time(), '%B %Y')`"
 headcolor: 414141
@@ -103,7 +104,6 @@ pubs <- scholar::get_publications("OIIf5T4AAAAJ&hl") %>%
     ),
     title_short = shorten_title(title, max_width = 100)   
   )
-
 
 # Manual corrections
 pubs$journal_short[str_detect(pubs$journal_short, "Reticulate Evolution")] <- "Reticulate Evolution"
